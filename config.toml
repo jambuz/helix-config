@@ -1,0 +1,9 @@
+theme = "rasmus"
+
+[editor]
+mouse = false
+cursorline = true
+completion-timeout = 0
+
+[editor.gutters]
+layout = ["diagnostics", "spacer", "line-numbers", "spacer"]
