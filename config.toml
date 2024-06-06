@@ -4,6 +4,9 @@ theme = "rasmus"
 mouse = false
 cursorline = true
 completion-timeout = 0
+auto-info = false
+indent-guides.render = true
+indent-guides.skip-levels = 1
 
 [editor.gutters]
 layout = ["diagnostics", "spacer", "line-numbers", "spacer"]
