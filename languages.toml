@@ -1,18 +1,24 @@
 [language-server]
 biome = { command = "biome", args = ["lsp-proxy"] }
-snippets-ls-ts = { command = "snippets-ls", args = ["-config", "C:\\_env\\friendly-snippets\\snippets\\javascript\\typescript.json"] }
-snippets-ls-go = { command = "snippets-ls", args = ["-config", "C:\\_env\\friendly-snippets\\snippets\\go.json"] }
-snippets-ls-html = { command = "snippets-ls", args = ["-config", "C:\\_env\\friendly-snippets\\snippets\\html.json"] }
-snippets-ls-rust = { command = "snippets-ls", args = ["-config", "C:\\_env\\friendly-snippets\\snippets\\rust\\rust.json"] }
+snippets-ls-ts = { command = "snippets-ls", args = ["-config", "C:\\_env\\snippets\\javascript\\typescript.json"] }
+snippets-ls-go = { command = "snippets-ls", args = ["-config", "C:\\_env\\snippets\\go.json"] }
+snippets-ls-html = { command = "snippets-ls", args = ["-config", "C:\\_env\\snippets\\html.json"] }
+snippets-ls-rust = { command = "snippets-ls", args = ["-config", "C:\\_env\\snippets\\rust\\rust.json"] }
 
 [[language]]
 name = "go"
-formatter = { command = "goimports"}
 language-servers = ["gopls", "snippets-ls-go"]
+auto-format = true
 
 [[language]]
 name = "rust"
 language-servers = ["rust-analyzer", "snippets-ls-rust"]
+auto-format = true
+
+[[language]]
+name = "python"
+file-types = ["py", "bend"]
+formatter = { command = "black_windows", args = ["--quiet", "--fast", "-"] }
 auto-format = true
 
 [[language]]
@@ -22,19 +28,14 @@ formatter = { command = "tidy", args = ["-ibq"]}
 language-servers = [ "snippets-ls-html"]
 auto-format = true
 
-[language-server.glsl_analyzer]
-command = "glsl_analyzer"
-
 [[language]]
 name = "typescript"
-# file-types = ["ts"]
 formatter = { command = "biome" , args = ["format"] }
 language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome", "snippets-ls-ts" ]
 auto-format = true
 
 [[language]]
 name = "json"
-# file-types = ["json"]
 formatter = { command = "biome" , args = ["format"] }
 language-servers = [ { name = "vscode-json-language-server", except-features = [ "format" ] }, "biome" ]
 auto-format = true
