@@ -1,9 +1,10 @@
+use-grammars = { only = [ "go", "typescript", "zig", "c", "html" ] }
+
 [language-server]
 biome = { command = "biome", args = ["lsp-proxy"] }
 snippets-ls-ts = { command = "snippets-ls", args = ["-config", "C:\\_env\\snippets\\javascript\\typescript.json"] }
-snippets-ls-go = { command = "snippets-ls", args = ["-config", "C:\\_env\\snippets\\go.json"] }
+snippets-ls-go = { command = "snippets-ls", args = ["-config", "/root/.config/snippets/go.json"] }
 snippets-ls-html = { command = "snippets-ls", args = ["-config", "C:\\_env\\snippets\\html.json"] }
-snippets-ls-rust = { command = "snippets-ls", args = ["-config", "C:\\_env\\snippets\\rust\\rust.json"] }
 gopls = { command = "gopls", config = { "gofumpt" = true, "local" = "goimports", "semanticTokens" = true, "staticcheck" = true, "verboseOutput" = true, "analyses" = { "fieldalignment" = true, "nilness" = true, unusedparams = true, unusedwrite = true, useany = true }, usePlaceholders = true, completeUnimported = true, hints = { "assignVariableType" = true, "compositeLiteralFields" = true, "compositeLiteralTypes" = true, "constantValues" = true, "functionTypeParameters" = true, "parameterNames" = true, "rangeVariableTypes" = true } } }
 
 [[language]]
@@ -12,14 +13,7 @@ language-servers = ["gopls", "snippets-ls-go"]
 auto-format = true
 
 [[language]]
-name = "rust"
-language-servers = ["rust-analyzer", "snippets-ls-rust"]
-auto-format = true
-
-[[language]]
-name = "python"
-file-types = ["py", "bend"]
-formatter = { command = "black_windows", args = ["--quiet", "--fast", "-"] }
+name = "zig"
 auto-format = true
 
 [[language]]
